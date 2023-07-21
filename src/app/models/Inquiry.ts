@@ -1,7 +1,7 @@
 export interface Inquiry {
   id?: number;
   deviceId: number;
-  justification?: string; //string | undefined | null,
+  justification?: string;
   date: Date;
   status: 'requested' | 'confirmed' | 'rejected';
 }

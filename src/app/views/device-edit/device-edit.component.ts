@@ -49,7 +49,7 @@ export class DeviceEditComponent {
       let newDevice: Device = {
         id: this.device?.id,
         name: formValue.name,
-        parameters: formValue.parameters,
+        parameters: formValue.parameters || '',
       };
       this.deviceService.editDevice(newDevice).subscribe(
         (device) => {
