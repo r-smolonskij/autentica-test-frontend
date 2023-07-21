@@ -1,0 +1,15 @@
+<h2 class="text-center mb-3">Add device </h2>
+<form [formGroup]="createForm" (submit)="onSubmit()">
+    <div class="mb-1">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name" >
+    </div>
+    <b class="text-danger mb-2" *ngIf="createForm.touched && !createForm.valid">Please fill name!</b>
+    <div class="mb-1 mt-3">
+        <label for="name" class="form-label">Parameters</label>
+        <textarea  class="form-control" id="parameters" placeholder="Parameters" formControlName="parameters" ></textarea>
+    </div>
+    <div class="my-3 d-grid">
+        <button type="submit" [disabled]="!createForm.valid" class="btn btn-primary mb-3 btn-block" >Create</button>
+    </div>
+</form>

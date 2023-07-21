@@ -1,0 +1,18 @@
+<h2 class="text-center mb-3">Add Inquiry </h2>
+<form [formGroup]="createForm" (submit)="onSubmit()">
+    <div class="mb-1">
+        <label for="device" class="form-label">Device</label>
+        <select class="form-select" name="device" aria-label="Select device" aria-placeholder="Select device" formControlName="device">
+            <option selected value="">Select device</option>
+            <option *ngFor="let device of devicesList" value="{{device.id}}">{{device.name}}</option>
+        </select>
+    </div>
+    <b class="text-danger mb-2" *ngIf="createForm.touched && !createForm.valid">Please select device!</b>
+    <div class="mb-1 mt-3">
+        <label for="name" class="form-label">Justification</label>
+        <textarea  class="form-control" id="justification" placeholder="Justification" formControlName="justification" ></textarea>
+    </div>
+    <div class="my-3 d-grid">
+        <button type="submit" [disabled]="!createForm.valid" class="btn btn-primary mb-3 btn-block" >Create</button>
+    </div>
+</form>

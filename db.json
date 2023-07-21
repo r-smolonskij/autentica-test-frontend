@@ -1,0 +1,40 @@
+{
+  "devices": [
+    {
+      "id": 1,
+      "name": "Device 1",
+      "parameters": "Parameters 1"
+    },
+    {
+      "id": 2,
+      "name": "Device 2",
+      "parameters": "Parameters 2"
+    },
+    {
+      "id": 3,
+      "name": "Device 3",
+      "parameters": "Parameters 3"
+    },
+    {
+      "id": 1689846470963,
+      "name": "Device 4",
+      "parameters": "asdasda sdasd"
+    }
+  ],
+  "inqueries": [
+    {
+      "deviceId": 3,
+      "justification": "asdasdads",
+      "date": "2023-07-20T09:59:28.380Z",
+      "status": "requested",
+      "id": 1
+    },
+    {
+      "deviceId": 3,
+      "justification": "asdasd",
+      "date": "2023-07-20T10:01:14.816Z",
+      "status": "requested",
+      "id": 2
+    }
+  ]
+}

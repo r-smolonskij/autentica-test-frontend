@@ -1,0 +1,65 @@
+<h2 class="text-center mb-3">Inqueries List</h2>
+<div class="mt-3 mb-2">
+  <label for="search">Search inqueries</label>
+  <input
+    [(ngModel)]="search"
+    class="form-control"
+    type="text"
+    id="search"
+    placeholder="Search inqueries"
+  />
+</div>
+<table
+  class="table table-bordered border-primary"
+  *ngIf="!loading; else loadingProcess"
+>
+  <thead>
+    <tr class="text-center">
+      <th>ID</th>
+      <th>Date</th>
+      <th>Device</th>
+      <th>Justification</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody *ngIf="filteredInqueries.length > 0; else noData">
+    <tr class="text-center" *ngFor="let inquiry of inquriesList">
+      <th>{{ inquiry.id }}</th>
+      <th>{{ inquiry.date | date : "dd/MM/yy HH:mm" }}</th>
+      <th>{{ inquiry.deviceId }}</th>
+      <th>{{ inquiry.justification }}</th>
+      <th class="pa-1">
+        <select
+          class="form-select"
+          [ngModel]="inquiry.status"
+          (change)="onStatusChange($event, inquiry)"
+          #device
+        >
+          <option *ngFor="let status of statuses" [value]="status">
+            {{ status }}
+          </option>
+        </select>
+      </th>
+      <td class="d-flex justify-content-center">
+        <fa-icon
+          [icon]="faTrash"
+          size="lg"
+          [ngStyle]="{ color: 'red' }"
+          class="pointer"
+          (click)="onDeleteClick(inquiry)"
+        ></fa-icon>
+      </td>
+    </tr>
+  </tbody>
+  <ng-template #noData>
+    <tr class="no-data">
+      <td colspan="12" class="text-center"><h3>No inqueries found!</h3></td>
+    </tr>
+  </ng-template>
+</table>
+<ng-template #loadingProcess>
+  <div class="text-center my-2">
+    <app-loader />
+  </div>
+</ng-template>
